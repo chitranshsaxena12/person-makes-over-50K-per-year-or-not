@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Affairs Prediction</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            /* background: linear-gradient(135deg, #71b7e6, #ee58c1); */
+            /* background-image: url('women affairs.jpg'); */
+        }
+        .content{
+            max-width: 750px;
+            width: 100%;
+            background-color: rgb(209, 211, 203);
+            padding: 25px 30px;
+            border-radius: 5px;
+
+        }
+        .content::before{
+    content: "";
+    position: absolute;
+    background: url('https://media.beliefnet.com/~/media/photos-with-attribution/relationships/relationship-couple-argue-fighting-sunset-shadows-sky_credit-shutterstock.jpg?as=1&w=650.jpg?w=1200&h=900&auto=format%2Ccompress&fit=max.jpg') no-repeat center center/cover;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 1;
+        }
+        .content .title{
+            font-size: 30px;
+            font-weight: 700;
+            position: relative;
+            text-align: center;
+            /* margin-bottom: 25px; */
+        }
+        .content .sub-title{
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+        .content .title::before{
+            content: '';
+            align-items: center;
+            position:absolute;
+            /* left: 0; */
+            bottom: 0;
+            height: 3px;
+            width: 435px;
+            background:linear-gradient(135deg, #71b7e6, #ee58c1);
+        }
+        .content form .user-detail{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        form .user-detail .input-box{
+            margin: 10px 0 5px 0;
+            /* margin-bottom: 15px; */
+            width: calc(100%/2 - 20px);
+        }
+        .user-detail .input-box .details{
+            display: block;
+            font-weight: 550;
+            margin-bottom: 5px;
+        }
+        .user-detail .input-box input{
+            height: 35px;
+            width: 100%;
+            outline: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            border-block-width: 2px;
+            transition: all 0.3s ease;
+        }
+        .user-detail .input-box input:focus{
+        /* .user-detail .input-box input:valid{ */
+            /* border: 2px solid #5e4eeb; */
+            border: 2px solid black;
+        }
+        form .button{
+            height: 45px;
+            margin: 8px 0;
+        }
+        form .button button{
+            margin-top: 5px;
+            height: 100%;
+            width: 100%;
+            outline: none;
+            color: black;
+            background: linear-gradient(135deg, #71b7e6, #ee58c1);
+            border: none;
+            font-size: 18px;
+            font-weight: 500;
+            /* letter-spacing: 1px; */
+            border-radius: 5px;
+        }
+        form .button button:hover{
+            /* background: linear-gradient(-135deg, #71b7e6, #ee58c1);    */
+            border: 2px solid rgb(63, 55, 55);
+            cursor: pointer;
+            font-size: 19px;
+        }
+        @media (max-width: 584px){
+            .content{
+            max-width: 100%;
+            }
+            form .user-detail .input-box{
+            margin: 10px 0 5px 0;
+            width: 100%;
+        }
+        .content form .user-detail{
+            max-height: 300px;
+            overflow-y: scroll;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="title">Person Makes Over Prediction</div>
+        <div class="sub-title">Predictive Analysis</div>
+        <form action="/predict" method="POST">
+            <div class="user-detail">
+                <div class="input-box">
+                    <span class="details">AGE</span>
+                    <input id="third" name="age" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">Work Class</span>
+                    <select id="workclass" name="workclass">
+                      <option value="Private">Private</option>
+                      <option value="Self-emp-not-inc">Self-emp-not-inc</option>
+                      <option value="Local-gov">Local-gov</option>
+                      <option value="None">None</option>
+                        <option value="State-gov">State-gov</option>
+                        <option value="Self-emp-inc">Self-emp-inc</option>
+                      <option value="Federal-gov">Federal-gov</option>
+                      <option value="Without-pay">Without-pay</option>
+                      <option value="Never-worked">Never-worked</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Education</span>
+                    <select id="education" name="education">
+                      <option value="HS-grad">HS-grad</option>
+                      <option value="Some-college">Some-college</option>
+                      <option value="Bachelors">Bachelors</option>
+                      <option value="Masters">Masters</option>
+                        <option value="Assoc-voc">Assoc-voc</option>
+                        <option value="11 th">11th</option>
+                      <option value="Assoc-acdm">Assoc-acdm</option>
+                      <option value="10 th">10th</option>
+                      <option value="7th-8th">7th-8th</option>
+                        <option value="Prof-school">Prof-school</option>
+                      <option value="9 th">9th</option>
+                      <option value="12 th">12th</option>
+                        <option value="Doctorate">Doctorate</option>
+                        <option value="5th-6th">5th-6th</option>
+                      <option value="1st-4th">1st-4th</option>
+                      <option value="Preschool">Preschool</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Education_Num</span>
+                    <input id="third" name="education_num" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">Marital Status</span>
+                    <select id="education" name="marital_status">
+                      <option value="Married-civ-spouse">Married-civ-spouse</option>
+                      <option value="Never-married">Never-married</option>
+                      <option value="Divorced">Divorced</option>
+                      <option value="Separated">Separated</option>
+                        <option value="Widowed">Widowed</option>
+                        <option value="Married-spouse-absent">Married-spouse-absent</option>
+                      <option value="Married-AF-spouse">Married-AF-spouse</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Occupation</span>
+                    <select id="education" name="occupation">
+                      <option value="Prof-specialty">Prof-specialty</option>
+                      <option value="Craft-repair">Craft-repair</option>
+                      <option value="Exec-managerial">Exec-managerial</option>
+                      <option value="Adm-clerical">Adm-clerical</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Other-service">Other-service</option>
+                      <option value="Machine-op-inspct">Machine-op-inspct</option>
+                      <option value="None">None</option>
+                      <option value="Transport-moving">Transport-moving</option>
+                        <option value="Handlers-cleaners">Handlers-cleaners</option>
+                      <option value="Farming-fishing">Farming-fishing</option>
+                      <option value="Tech-support">Tech-support</option>
+                        <option value="Protective-serv">Protective-serv</option>
+                        <option value="Priv-house-serv">Priv-house-serv</option>
+                      <option value="Armed-Forces">Armed-Forces</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Relationship</span>
+                    <select id="Relationship" name="relationship">
+                      <option value="Husband">Husband</option>
+                      <option value="Not-in-family">Not-in-family</option>
+                      <option value="Own-child">Own-child</option>
+                      <option value="Unmarried">Unmarried</option>
+                        <option value="Wife">Wife</option>
+                        <option value="Other-relative">Other-relative</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Race</span>
+                    <select id="race" name="race">
+                      <option value="White">White</option>
+                      <option value="Black">Black</option>
+                      <option value="Asian-Pac-Islander">Asian-Pac-Islander</option>
+                      <option value="Amer-Indian-Eskimo">Amer-Indian-Eskimo</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                 <div class="input-box">
+                    <span class="details">Sex</span>
+                    <select id="sex" name="sex">
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Capital Gain</span>
+                    <input id="fourth" name="capital_gain" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">Capital Loss</span>
+                    <input id="fifth" name="capital_loss" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">Hours Per Week</span>
+                    <input name="hours_per_week" id="six" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">Native Country</span>
+                    <select id="educ" name="native_country">
+                      <option value="United-States">United-States</option>
+                      <option value="Mexico">Mexico</option>
+                      <option value="None">None</option>
+                      <option value="Philippines">Philippines</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Puerto-Rico">Puerto-Rico</option>
+                      <option value="El-Salvador">El-Salvador</option>
+                      <option value="India">India</option>
+                      <option value="Cuba">Cuba</option>
+                        <option value="England">England</option>
+                        <option value="Jamaica">Jamaica</option>
+                        <option value="South">South</option>
+                      <option value="China">China</option>
+                      <option value="Italy">Italy</option>
+                      <option value="Dominican-Republic">Dominican-Republic</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Japan">Japan</option>
+                      <option value="Poland">Poland</option>
+                      <option value="Columbia">Columbia</option>
+                      <option value="Taiwan">Taiwan</option>
+                        <option value="Haiti">Haiti</option>
+                        <option value="Iran">Iran</option>
+                        <option value="Portugal">Portugal</option>
+                      <option value="Nicaragua">Nicaragua</option>
+                      <option value="Peru">Peru</option>
+                      <option value="France">France</option>
+                        <option value="Greece">Greece</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="Hong">Hong</option>
+                        <option value="Cambodia">Cambodia</option>
+                      <option value="Trinadad&Tobago">Trinadad&Tobago</option>
+                      <option value="Laos">Laos</option>
+                      <option value="Thailand">Thailand</option>
+                        <option value="Yugoslavia">Yugoslavia</option>
+                        <option value="Outlying-US(Guam-USVI-etc)">Outlying-US(Guam-USVI-etc)</option>
+                        <option value="Honduras">Honduras</option>
+                        <option value="Hungary">Hungary</option>
+                        <option value="Scotland">Scotland</option>
+                      <option value="Holand-Netherlands">Holand-Netherlands</option>
+                    </select>
+                </div>
+            </div>
+            <div class="button">
+                <button id="sub" type="submit ">Calculate the person makes over</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
